@@ -29,7 +29,7 @@ function HeroesList({ onHeroSelected, heroesUpdated }) {
 
   const handleSave = async () => {
     try {
-      // Aquí deberías realizar la actualización en el backend.
+     
       await axios.put(`http://localhost:5000/heroes/${editingHeroId}`, { name: editedName });
       setHeroes(heroes.map(hero => hero.hero_id === editingHeroId ? { ...hero, name: editedName } : hero));
       setEditingHeroId(null);
@@ -38,13 +38,14 @@ function HeroesList({ onHeroSelected, heroesUpdated }) {
     }
   };
 
+  //Formulario
   return (
     <div className="heroes-list-container">
       <h1>Lista de Héroes</h1>
       <ul className="heroes-list">
         {heroes.map((hero) => (
           <li key={hero.hero_id} className="heroes-list-item">
-            {editingHeroId === hero.hero_id ? (
+            {editingHeroId === hero.hero_id ? (  //si se realizó algun tipo de edición entonces compara y muestra
               <input
                 type="text"
                 value={editedName}
@@ -55,7 +56,7 @@ function HeroesList({ onHeroSelected, heroesUpdated }) {
             )}
             <div>
               {editingHeroId === hero.hero_id ? (
-                <button onClick={handleSave} className="heroes-list-button">Guardar</button>
+                <button onClick={handleSave} className="heroes-list-button">Guardar</button> //compara si al guardar son los mismos datos o actualizados
               ) : (
                 <>
                   <button onClick={() => handleEditClick(hero.hero_id, hero.name)} className="heroes-list-button">Editar</button>
@@ -95,7 +96,7 @@ function HeroesList({ onHeroSelected, heroesUpdated }) {
   }, [heroesUpdated, search]);
 
   const handleSearchChange = (e) => {
-    setSearch({ ...search, [e.target.name]: e.target.value });
+    setSearch({ // search , [e.target.name]: e.target.value });
   };
 
   const handleSearch = async () => {
@@ -122,7 +123,7 @@ function HeroesList({ onHeroSelected, heroesUpdated }) {
       <ul className="heroes-list">
   {heroes.map((hero) => (
     <li key={hero.hero_id} className="heroes-list-item">
-      {/* Renderiza el héroe aquí }
+      {/* Renderizar el héroe aquí }
       {hero.name} - {hero.publisher} - {hero.race} - {hero.gender} - {hero.side}
     </li>
   ))}

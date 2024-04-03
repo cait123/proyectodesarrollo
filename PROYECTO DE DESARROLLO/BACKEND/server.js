@@ -1,5 +1,6 @@
+//se creó un enrutador de express para definir las rutas
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); //biblioteca de modelado
 const cors = require('cors');
 const app = express();
 const port = 5000;

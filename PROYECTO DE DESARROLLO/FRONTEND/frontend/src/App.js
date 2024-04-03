@@ -1,5 +1,4 @@
  
-
 import React, { useState } from 'react';
 import HeroesList from './component/HeroesList';
 import AddHeroForm from './component/AddHeroForm';
@@ -28,7 +27,7 @@ function App() {
       setDeleteMode(true);
     }
   };
-
+//devuelve formularios creados en cada componente
   return (
     <div>
       <AddHeroForm />

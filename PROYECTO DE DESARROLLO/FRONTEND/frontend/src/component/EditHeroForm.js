@@ -1,8 +1,6 @@
- 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; //biblioteca de react para especificar qué se desea recibir
 
 function EditHeroForm({ heroId, onHeroUpdated }) {
   const [hero, setHero] = useState({ name: '' });
@@ -10,7 +8,7 @@ function EditHeroForm({ heroId, onHeroUpdated }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true); //carga datos del héroe
     axios.get(`http://localhost:5000/heroes/${heroId}`)
       .then(response => {
         const { _id, ...rest } = response.data;
@@ -25,11 +23,12 @@ function EditHeroForm({ heroId, onHeroUpdated }) {
       });
   }, [heroId]);
 
+  //actualización de datos
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setHero({ ...hero, [name]: value });
   };
-
+//heroe actualizado
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Submitting form...');
@@ -49,6 +48,7 @@ function EditHeroForm({ heroId, onHeroUpdated }) {
   if (isLoading) return <p>Cargando...</p>;
   if (error) return <p>{error}</p>;
 
+  //Devolver al estado original de la lista
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Nombre del Héroe:</label>

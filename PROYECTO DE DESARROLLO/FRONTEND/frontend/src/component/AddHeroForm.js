@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from 'axios'; //importación de axios para consumir rutas y realizar operaciones crud
 import './AddHeroForm.css'; // Importación del archivo CSS
 
 function AddHeroForm() {
@@ -18,6 +18,7 @@ function AddHeroForm() {
     alignment_id: ''
   });
 
+  //tomar datos previos y actualizarlos
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setHeroData(prevData => ({
@@ -26,6 +27,7 @@ function AddHeroForm() {
     }));
   };
 
+  //conexión exitosa con la bd y héroe añadido
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('http://localhost:5000/heroes', heroData)
@@ -37,6 +39,7 @@ function AddHeroForm() {
       });
   };
 
+  //muestra el formulaario y permite enviarlo con el botón
   return (
     <form onSubmit={handleSubmit} className="add-hero-form">
       <h1>Añadir Héroe</h1>

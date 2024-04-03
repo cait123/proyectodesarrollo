@@ -12,6 +12,7 @@ function DeleteHeroForm() {
     loadHeroes();
   }, []);
 
+  //manejo de los errores
   const loadHeroes = () => {
     axios.get('http://localhost:5000/heroes')
       .then(response => setHeroes(response.data))
@@ -34,6 +35,7 @@ function DeleteHeroForm() {
     }
   };
 
+  //clase desplegada
   return (
     <div className="delete-hero-form">
       <h2>Eliminar Héroe</h2>

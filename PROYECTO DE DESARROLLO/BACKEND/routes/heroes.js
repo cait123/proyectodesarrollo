@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
         gender_id: req.body.gender_id,
         alignment_id: req.body.alignment_id
     });
-
+//guardar campos
     try {
         const newHero = await hero.save();
         res.status(201).json(newHero);
