@@ -1,47 +1,4 @@
-/*import React, { useState } from 'react';
-import axios from 'axios';
-import './EditHeroForm.css';
-
-function EditHeroForm({ heroId, onHeroUpdated }) {
-  const [name, setName] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    try {
-      await axios.put(`http://localhost:5000/heroes/${heroId}`, { name });
-      alert('Héroe actualizado con éxito');
-      onHeroUpdated();
-    } catch (error) {
-      console.error('Error al actualizar héroe:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="edit-hero-form">
-      <h1>Editar Héroe</h1>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Nuevo Nombre del Héroe"
-      />
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Actualizando...' : 'Actualizar'}
-      </button>
-    </form>
-  );
-}
-
-export default EditHeroForm;
-
-*/
-
-
-// EditHeroForm.js
+ 
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';

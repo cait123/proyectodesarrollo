@@ -1,17 +1,4 @@
-/*const mongoose = require('mongoose');
-
-const heroSchema = new mongoose.Schema({
-    name: String,
-    publisher: String,
-    race: String,
-    gender: String,
-    height: Number,
-    weight: Number
-    // Agrega más campos según sea necesario
-});
-
-module.exports = mongoose.model('Hero', heroSchema);
-*/
+ 
 
 const mongoose = require('mongoose');
 
@@ -37,12 +24,12 @@ const heroSchema = new mongoose.Schema({
     height: Number,
     weight: Number,
     race: {
-        type: String, // Cambié 'mixed' a 'String', ajusta según sea necesario
+        type: String,  
     },
     publisher_id: Number,
     gender_id: Number,
     alignment_id: Number
-    // Agrega más campos según sea necesario
+     
 });
 
 module.exports = mongoose.model('Hero', heroSchema);
