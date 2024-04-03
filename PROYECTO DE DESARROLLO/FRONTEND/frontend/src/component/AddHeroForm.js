@@ -1,11 +1,9 @@
- 
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddHeroForm.css'; // Importación del archivo CSS
 
 function AddHeroForm() {
-  // Actualizado para incluir hero_id y valores predeterminados
+
   const [heroData, setHeroData] = useState({
     hero_id: '',
     name: '',

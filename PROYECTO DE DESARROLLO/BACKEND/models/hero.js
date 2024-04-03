@@ -1,5 +1,3 @@
- 
-
 const mongoose = require('mongoose');
 
 const heroSchema = new mongoose.Schema({
@@ -12,13 +10,13 @@ const heroSchema = new mongoose.Schema({
         required: true
     },
     eye_color: {
-        type: String, // Cambié 'mixed' a 'String', ajusta según sea necesario
+        type: String, 
     },
     hair_color: {
-        type: String, // Cambié 'mixed' a 'String', ajusta según sea necesario
+        type: String, 
     },
     skin_color: {
-        type: String, // Ajusta según sea necesario; 'null' como tipo no es válido en Mongoose
+        type: String, 
         default: null
     },
     height: Number,

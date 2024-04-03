@@ -1,8 +1,6 @@
- 
-
 const express = require('express');
 const router = express.Router();
-const Hero = require('../models/hero'); // Asegúrate de que la ruta es correcta
+const Hero = require('../models/hero'); 
 
 // Obtener todos los héroes
 router.get('/', async (req, res) => {
@@ -21,10 +19,35 @@ router.get('/:id', getHero, (req, res) => {
     res.json(res.hero);
 });
 
+// Obtener todos los héroes (con opción de filtrado)
+router.get('/', async (req, res) => {
+    try {
+        let query = {};
+        if (req.query.publisher) {
+            query.publisher = req.query.publisher;
+        }
+        if (req.query.race) {
+            query.race = req.query.race;
+        }
+        if (req.query.gender) {
+            query.gender = req.query.gender;
+        }
+        if (req.query.side) {
+            query.side = req.query.side;
+        }
+        const heroes = await Hero.find(query);
+        res.json(heroes);
+    } catch (error) {
+        console.error('Error al obtener héroes:', error);
+        res.status(500).json({ message: 'Error al obtener héroes' });
+    }
+});
+
+
 // Crear un nuevo héroe
 router.post('/', async (req, res) => {
     const hero = new Hero({
-        // Asegúrate de que estos campos coincidan con tu esquema de Hero
+     
         hero_id: req.body.hero_id,
         name: req.body.name,
         eye_color: req.body.eye_color,
@@ -52,7 +75,6 @@ router.patch('/:id', getHero, async (req, res) => {
     if (req.body.name != null) {
         res.hero.name = req.body.name;
     }
-    // Repite para otros campos como eye_color, hair_color, etc.
 
     try {
         const updatedHero = await res.hero.save();
