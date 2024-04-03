@@ -25,7 +25,7 @@ db.once('open', () => console.log('Conectado exitosamente a MongoDB'));
 
 // Definición de modelo para 'hero_information'
 const HeroSchema = new mongoose.Schema({
-  hero_id: Number, // Ajusta los campos según tu esquema real
+  hero_id: Number, 
   name: String,
   eye_color: String,
   hair_color: String,
@@ -33,7 +33,7 @@ const HeroSchema = new mongoose.Schema({
   height: Number,
   weight: Number,
   race: String,
-  publisher_id: String, // Ajusta estos campos si están referenciados a otra colección
+  publisher_id: String, 
   gender_id: String,
   alignment_id: String
 });
@@ -51,7 +51,7 @@ app.get('/heroes', async (req, res) => {
   }
 });
 
-// Obtener un héroe específico por hero_id (ajusta según tu campo de identificación)
+// Obtener un héroe específico por hero_id 
 
 app.get('/heroes/:heroId', async (req, res) => {
   try {
@@ -69,10 +69,17 @@ app.get('/heroes/:heroId', async (req, res) => {
 // Crear un nuevo héroe
 app.post('/heroes', async (req, res) => {
   const hero = new Hero({
-    // Asegúrate de incluir todos los campos necesarios aquí
     hero_id: req.body.hero_id,
-    name: req.body.name,
-    // ...
+    name: req.body.name, 
+    eye_color: req.body.eye_color,
+    hair_color: req.body.hair_color,
+    skin_color: req.body.skin_color,
+    height: req.body.height,
+    weight: req.body.weight,
+    race: req.body.race,
+    publisher_id: req.body.publisher_id,
+    gender_id: req.body.gender_id,
+    alignment_id: req.body.alignment_id
   });
 
   try {
