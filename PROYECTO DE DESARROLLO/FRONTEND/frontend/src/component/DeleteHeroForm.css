@@ -1,0 +1,42 @@
+.delete-hero-form {
+    margin: 20px auto;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .delete-hero-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .delete-hero-list-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-hero-button {
+    padding: 5px 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-hero-button:hover {
+    background-color: #c9302c;
+  }
+  
+  .delete-hero-button:disabled {
+    background-color: #eee;
+    color: #999;
+    cursor: not-allowed;
+  }
+  
